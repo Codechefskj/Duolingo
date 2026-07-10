@@ -24,6 +24,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",
         "https://duolingo-26bg.vercel.app",
+        "https://duolingo-26bg-git-main-codechefskjs-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
