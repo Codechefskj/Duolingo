@@ -42,87 +42,71 @@ The backend is FastAPI with SQLAlchemy over SQLite, structured in clear layers (
 
 ## 📸 Application Screenshots
 
-<table align="center">
-<tr>
-<td align="center">
-<b>Skill Tree (Learn)</b><br><br>
-<img src="./assets/learn-screen.png" width="280"/>
-</td>
-
-<td align="center">
-<b>Lesson Player</b><br><br>
-<img src="./assets/lesson-screen.png" width="280"/>
-</td>
-</tr>
-
-<tr>
-<td align="center">
-<b>Lesson Complete</b><br><br>
-<img src="./assets/lesson-complete-screen.png" width="280"/>
-</td>
-
-<td align="center">
-<b>Out of Hearts</b><br><br>
-<img src="./assets/out-of-hearts-screen.png" width="280"/>
-</td>
-</tr>
-
-<tr>
-<td align="center">
-<b>Leaderboard</b><br><br>
-<img src="./assets/leaderboard-screen.png" width="280"/>
-</td>
-
-<td align="center">
-<b>Profile</b><br><br>
-<img src="./assets/profile-screen.png" width="280"/>
-</td>
-</tr>
-
-<tr>
-<td align="center">
-<b>Login / Register</b><br><br>
-<img src="./assets/login-screen.png" width="280"/>
-</td>
-
-<td align="center">
-<b>Practice (Legendary)</b><br><br>
-<img src="./assets/practice-screen.png" width="280"/>
-</td>
-</tr>
-</table>
-
----
-
-## System Architecture
-
-The application follows a layered architecture where each layer has a single, clear responsibility. This keeps the codebase easy to reason about — routes call business logic, business logic touches the ORM, and nothing skips a layer.
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.14.21AM.png" width="800"/>
+</p>
 
 <p align="center">
-<img src="./assets/architecture-full.png" width="820"/>
+  <img src="./asset/Screenshot 2026-07-11 at 3.14.42AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.14.51AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.15.08AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.15.24AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.15.47AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.16.13AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.16.23AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.16.41AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.17.01AM.png" width="800"/>
+</p>
+
+<p align="center">
+  <img src="./asset/Screenshot 2026-07-11 at 3.17.10AM.png" width="800"/>
+</p>
+
+## 🏗️ System Architecture
+
+<p align="center">
+<img src="./asset/architecture.png" width="1000"/>
 </p>
 
 ---
 
-## Backend Architecture
-
-The backend is a FastAPI application organised into six layers: presentation (the Next.js client), API layer (FastAPI app + middleware), routing (one router file per resource), business logic (`gamification.py` and `exercise_check.py`), data access (SQLAlchemy ORM), and the SQLite database. Requests flow top-to-bottom; only the two business-logic modules contain rules, so game mechanics live in one findable place.
+## ⚙️ Backend Architecture
 
 <p align="center">
-<img src="./assets/architecture-backend.png" width="820"/>
+<img src="./asset/backend.png" width="1000"/>
 </p>
 
 ---
 
-## Frontend Architecture
-
-The frontend is a Next.js 14 App Router app in TypeScript. Pages are thin — they call into small reusable components (`LessonPlayer`, `SkillPath`, `ExerciseRenderer`, `FeedbackBar`, `Mascot`, `TopStats`) — and every network call goes through a single `lib/api.ts` client that handles the auth header, JSON parsing, and 401 fallback. State is local React state plus a small amount of localStorage for the token and theme; the source of truth for progress is always the server.
+## 🎨 Frontend Architecture
 
 <p align="center">
-<img src="./assets/architecture-frontend.png" width="820"/>
+<img src="./asset/frontend.png" width="1000"/>
 </p>
-
----
 
 ## Installation Steps
 
