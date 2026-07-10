@@ -366,6 +366,10 @@ Streaks tick up on consecutive days of activity and reset on a gap. The rule is 
 `update_streak_and_xp(stats, xp, today)` takes `today` as a parameter, so `test_gamification.py` simulates each case with a hardcoded date. No sleeping, no clock mocking.
 
 ---
+ 
+## API Overview
+ 
+All endpoints are JSON over HTTP. Requests carry `Authorization: Bearer <token>` when the learner is logged in; without a token, the API serves the seeded demo learner (spec-permitted default). Interactive docs are auto-generated at `http://localhost:8000/docs` when the backend is running.
 
 ## Authentication
 
