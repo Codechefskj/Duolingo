@@ -42,70 +42,103 @@ The backend is FastAPI with SQLAlchemy over SQLite, structured in clear layers (
 
 ## 📸 Application Screenshots
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.14.21AM.png" width="800"/>
-</p>
+<table>
+<tr>
+<td align="center" width="50%">
+<a href="./assets/1.png">
+<img src="./assets/1.png" width="100%" alt="Screenshot 1"/>
+</a>
+</td>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.14.42AM.png" width="800"/>
-</p>
+<td align="center" width="50%">
+<a href="./assets/2.png">
+<img src="./assets/2.png" width="100%" alt="Screenshot 2"/>
+</a>
+</td>
+</tr>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.14.51AM.png" width="800"/>
-</p>
+<tr>
+<td align="center">
+<a href="./assets/3.png">
+<img src="./assets/3.png" width="100%" alt="Screenshot 3"/>
+</a>
+</td>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.15.08AM.png" width="800"/>
-</p>
+<td align="center">
+<a href="./assets/4.png">
+<img src="./assets/4.png" width="100%" alt="Screenshot 4"/>
+</a>
+</td>
+</tr>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.15.24AM.png" width="800"/>
-</p>
+<tr>
+<td align="center">
+<a href="./assets/5.png">
+<img src="./assets/5.png" width="100%" alt="Screenshot 5"/>
+</a>
+</td>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.15.47AM.png" width="800"/>
-</p>
+<td align="center">
+<a href="./assets/6.png">
+<img src="./assets/6.png" width="100%" alt="Screenshot 6"/>
+</a>
+</td>
+</tr>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.16.13AM.png" width="800"/>
-</p>
+<tr>
+<td align="center">
+<a href="./assets/7.png">
+<img src="./assets/7.png" width="100%" alt="Screenshot 7"/>
+</a>
+</td>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.16.23AM.png" width="800"/>
-</p>
+<td align="center">
+<a href="./assets/8.png">
+<img src="./assets/8.png" width="100%" alt="Screenshot 8"/>
+</a>
+</td>
+</tr>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.16.41AM.png" width="800"/>
-</p>
+<tr>
+<td align="center">
+<a href="./assets/9.png">
+<img src="./assets/9.png" width="100%" alt="Screenshot 9"/>
+</a>
+</td>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.17.01AM.png" width="800"/>
-</p>
+<td align="center">
+<a href="./assets/10.png">
+<img src="./assets/10.png" width="100%" alt="Screenshot 10"/>
+</a>
+</td>
+</tr>
 
-<p align="center">
-  <img src="./asset/Screenshot 2026-07-11 at 3.17.10AM.png" width="800"/>
-</p>
+<tr>
+<td colspan="2" align="center">
+<a href="./assets/11.png">
+<img src="./assets/11.png" width="70%" alt="Screenshot 11"/>
+</a>
+</td>
+</tr>
+</table>
 
 ## 🏗️ System Architecture
 
 <p align="center">
-<img src="./asset/architecture.png" width="1000"/>
+<img src="./assets/architecture.png" width="100%">
 </p>
 
 ---
-
 ## ⚙️ Backend Architecture
 
 <p align="center">
-<img src="./asset/backend.png" width="1000"/>
+<img src="./assets/backend.png" width="100%">
 </p>
-
 ---
-
 ## 🎨 Frontend Architecture
 
 <p align="center">
-<img src="./asset/frontend.png" width="1000"/>
+<img src="./assets/frontend.png" width="100%">
 </p>
 
 ## Installation Steps
