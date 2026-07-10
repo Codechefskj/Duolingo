@@ -5,6 +5,9 @@ import type { Course } from "@/lib/types";
 import PathNode from "./PathNode";
 import Mascot from "./Mascot";
 
+const OFFSETS = [0, 52, 84, 52, 0, -52, -84, -52];
+const MASCOT_GAP = 160; // fixed visual distance from the node's actual center
+
 export default function SkillPath({ course }: { course: Course }) {
   const [activeUnitIdx, setActiveUnitIdx] = useState(0);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
@@ -12,27 +15,21 @@ export default function SkillPath({ course }: { course: Course }) {
   useEffect(() => {
     const handleScroll = () => {
       let currentIdx = 0;
-      
-      // Check the position of each unit section relative to the top of the screen
+
       for (let i = 0; i < sectionRefs.current.length; i++) {
         const section = sectionRefs.current[i];
         if (section) {
           const rect = section.getBoundingClientRect();
-          // If the section reaches near the top of the screen (underneath our sticky header)
-          // it becomes the active unit.
           if (rect.top <= 120) {
             currentIdx = i;
           }
         }
       }
-      
+
       setActiveUnitIdx(currentIdx);
     };
 
-    // Listen for scroll events
     window.addEventListener("scroll", handleScroll);
-    
-    // Call once to set the initial correct banner on page load
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -43,15 +40,9 @@ export default function SkillPath({ course }: { course: Course }) {
 
   return (
     <div className="max-w-2xl mx-auto px-4 relative">
-      
-      {/* 
-        1. THE SINGLE STICKY HEADER 
-        This sits permanently at the top and morphs based on scroll position 
-      */}
+      {/* 1. THE SINGLE STICKY HEADER */}
       <div className="sticky top-0 z-30 mb-8 transition-colors duration-300">
-          {/* THE MASK: A solid 24px block only at the very top to hide the scrolling nodes */}
-        <div className="h-6 w-full bg-[var(--bg)] block" /> 
-        {/* Note: I used #131f24 based on your previous dark mode colors, but you can swap it back to var(--bg) if needed! */}
+        <div className="h-6 w-full bg-[var(--bg)] block" />
 
         <div
           className={`rounded-2xl px-5 py-4 flex items-center justify-between gap-3 text-white transition-colors duration-300
@@ -73,23 +64,23 @@ export default function SkillPath({ course }: { course: Course }) {
         </div>
       </div>
 
-      {/* 
-        2. THE SCROLLING PATH 
-        Notice there are NO unit banners rendered inside this map function anymore.
-      */}
+      {/* 2. THE SCROLLING PATH */}
       {course.units.map((unit, uIdx) => {
         const activeNodeIdx = unit.skills.findIndex((s) => s.status === "available");
-        
+
+        // Side is decided purely by unit parity — guarantees the mascot
+        // alternates every unit, matching the header's green/purple swap,
+        // regardless of what OFFSETS happens to produce for that node.
+        const mascotDirection = uIdx % 2 === 0 ? -1 : 1;
+
         return (
-          <section 
-            key={unit.id} 
-            // Attach the ref so our scroll tracker knows exactly where this section is
+          <section
+            key={unit.id}
             ref={(el) => {
               sectionRefs.current[uIdx] = el;
             }}
             className="relative pb-6"
           >
-            {/* Simple text line to visually show where a new unit starts on the path */}
             {uIdx > 0 && (
               <div className="flex items-center gap-4 text-mut font-bold text-sm mb-10 pt-2">
                 <div className="flex-1 h-0.5 bg-line rounded" />
@@ -101,11 +92,25 @@ export default function SkillPath({ course }: { course: Course }) {
             <div className="relative flex flex-col items-center gap-7 py-4">
               {unit.skills.map((skill, i) => {
                 const idx = flat++;
+                const nodeOffset = OFFSETS[idx % OFFSETS.length];
+
+                // Distance is still anchored to the node's real position,
+                // so the gap never shrinks/overlaps no matter how far
+                // the node itself has drifted in the zigzag.
+                const mascotX = nodeOffset + mascotDirection * MASCOT_GAP;
+
                 return (
                   <div key={skill.id} className="relative">
                     <PathNode skill={skill} index={idx} />
+
                     {i === activeNodeIdx && (
-                      <div className="absolute left-24 top-1/2 -translate-y-1/2 hidden sm:block pointer-events-none z-0">
+                      <div
+                        className="absolute top-1/2 hidden sm:block pointer-events-none z-0"
+                        style={{
+                          left: `calc(50% + ${mascotX}px)`,
+                          transform: "translate(-50%, -50%)",
+                        }}
+                      >
                         <Mascot size={88} />
                       </div>
                     )}
