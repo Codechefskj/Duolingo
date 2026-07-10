@@ -1,6 +1,13 @@
 # Lingo — Duolingo-style Web App 🦉
 
 ---
+## 🌐 Live Demo
+| Service | URL |
+|---------|-----|
+| Frontend (Vercel) | https://duolingo-26bg-git-main-codechefskjs-projects.vercel.app/learn |
+| Backend API (Render) | https://duolingo-sreb.onrender.com |
+| API Documentation | https://duolingo-sreb.onrender.com/docs |
+---
 
 ## Project Description
 
@@ -152,13 +159,13 @@ The backend is FastAPI with SQLAlchemy over SQLite, structured in clear layers (
 ### Step 1 — Clone Repository
 
 ```bash
-git clone https://github.com/<your-username>/duolingo-clone.git
+git clone https://github.com/Codechefskj/Duolingo.git
 ```
 
 ### Step 2 — Move Into Project Directory
 
 ```bash
-cd duolingo-clone
+cd Duolingo
 ```
 
 ### Step 3 — Backend Setup
@@ -174,7 +181,17 @@ python -m app.seed                  # creates duolingo.db with seed content + de
 uvicorn app.main:app --reload --port 8000
 ```
 
-The backend now runs at `http://localhost:8000`. Interactive API docs are at `http://localhost:8000/docs`.
+The backend runs locally at `http://localhost:8000`.
+
+Interactive API docs (Local):
+http://localhost:8000/docs
+
+Production API:
+https://duolingo-sreb.onrender.com/
+
+Production API Docs:
+https://duolingo-sreb.onrender.com/docs
+
 
 ### Step 4 — Frontend Setup
 
@@ -183,8 +200,19 @@ Open a second terminal (leave the backend running) and run:
 ```bash
 cd frontend
 npm install
-cp .env.example .env.local          # sets NEXT_PUBLIC_API_URL to http://localhost:8000
+cp .env.example .env.local
 npm run dev
+```
+Set the environment variable:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:8000
+```
+
+For production (Vercel):
+
+```env
+NEXT_PUBLIC_API_URL=https://duolingo-sreb.onrender.com
 ```
 
 Open `http://localhost:3000` in the browser. `/` redirects to `/learn`.
@@ -202,7 +230,7 @@ Rerunning `python -m app.seed` wipes and rebuilds the DB back to the demo state 
 ## Project Structure
 
 ```text
-duolingo-clone/
+Duolingo/
 │
 ├── backend/
 │   ├── app/
@@ -366,7 +394,7 @@ Streaks tick up on consecutive days of activity and reset on a gap. The rule is 
 `update_streak_and_xp(stats, xp, today)` takes `today` as a parameter, so `test_gamification.py` simulates each case with a hardcoded date. No sleeping, no clock mocking.
 
 ---
- 
+
 ## API Overview
  
 All endpoints are JSON over HTTP. Requests carry `Authorization: Bearer <token>` when the learner is logged in; without a token, the API serves the seeded demo learner (spec-permitted default). Interactive docs are auto-generated at `http://localhost:8000/docs` when the backend is running.
@@ -434,6 +462,52 @@ python -m pytest app/ -v
 ```
 
 Every gamification function takes `now` / `today` as a parameter rather than reading the clock, so "a day passed" or "30 minutes elapsed" is simulated in tests, never slept. That's the reason all 70 tests run in under 5 seconds.
+
+---
+
+### Seed Data
+
+The backend automatically seeds the database during the first deployment if it is empty. A demo learner and sample Spanish course are created automatically.
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- JWT Authentication
+- bcrypt
+
+### Database
+- SQLite
+
+### Deployment
+- Vercel
+- Render
+---
+
+# 🚀 Deployment
+
+## Frontend
+
+- **Platform:** Vercel
+- **URL:** https://duolingo-26bg-git-main-codechefskjs-projects.vercel.app/learn
+
+## Backend
+
+- **Platform:** Render
+- **URL:** https://duolingo-sreb.onrender.com/
+
+## API Documentation
+
+- https://duolingo-sreb.onrender.com/docs
 
 ---
 
