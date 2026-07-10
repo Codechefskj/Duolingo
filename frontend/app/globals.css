@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark theme (default) — matches Duolingo's dark web palette */
+:root {
+  --bg: #131f24;
+  --panel: #17252b;
+  --line: #37464f;
+  --ink: #f1f7fb;
+  --mut: #7b8f99;
+  --node-locked: #37464f;
+  --node-locked-shadow: #24343d;
+  --overlay: rgba(19, 31, 36, 0.92);
+  --correct-bg: #17252b;
+  --wrong-bg: #17252b;
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --panel: #ffffff;
+  --line: #e5e5e5;
+  --ink: #3c3c3c;
+  --mut: #afafaf;
+  --node-locked: #e5e5e5;
+  --node-locked-shadow: #c9c9c9;
+  --overlay: rgba(255, 255, 255, 0.95);
+  --correct-bg: #d7ffb8;
+  --wrong-bg: #ffdfe0;
+}
+
+body {
+  color: var(--ink);
+  background: var(--bg);
+}
+
+@layer components {
+  /* Duolingo's chunky 3D buttons */
+  .btn-duo {
+    @apply font-bold uppercase tracking-wide rounded-2xl px-6 py-3
+      transition-transform active:translate-y-[3px] active:shadow-none
+      disabled:opacity-40 disabled:pointer-events-none select-none;
+  }
+  .btn-duo-green { @apply btn-duo bg-duo-green text-[#131f24] shadow-[0_4px_0_0_#46a302]; }
+  .btn-duo-blue  { @apply btn-duo bg-duo-blue text-white shadow-[0_4px_0_0_#1899d6]; }
+  .btn-duo-red   { @apply btn-duo bg-duo-red text-white shadow-[0_4px_0_0_#ea2b2b]; }
+  .btn-duo-purple{ @apply btn-duo bg-duo-purple text-white shadow-[0_4px_0_0_#a568d9]; }
+  .btn-duo-white { @apply btn-duo bg-white text-duo-greenDark shadow-[0_4px_0_0_#d0d0d0]; }
+  .btn-duo-outline {
+    @apply btn-duo bg-transparent border-2 text-duo-blue;
+    border-color: var(--line);
+    box-shadow: 0 4px 0 0 var(--line);
+  }
+  .btn-duo-ghost {
+    @apply btn-duo bg-transparent border-2;
+    border-color: var(--line);
+    color: var(--mut);
+    box-shadow: 0 2px 0 0 var(--line);
+  }
+
+  .card-duo {
+    @apply rounded-2xl border-2;
+    border-color: var(--line);
+    background: var(--panel);
+  }
+  .choice-duo {
+    @apply rounded-2xl border-2 font-bold transition-colors;
+    border-color: var(--line);
+    background: var(--panel);
+    color: var(--ink);
+    box-shadow: 0 3px 0 0 var(--line);
+  }
+  .choice-duo:active { transform: translateY(2px); box-shadow: none; }
+  .choice-selected {
+    @apply border-duo-blue text-duo-blue;
+    background: rgba(28, 176, 246, 0.12) !important;
+    box-shadow: 0 3px 0 0 #1899d6 !important;
+  }
+}
+
+@layer utilities {
+  .text-mut { color: var(--mut); }
+  .border-line { border-color: var(--line); }
+  .bg-panel { background: var(--panel); }
+}
+
+@keyframes pop-in { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+@keyframes slide-up { 0% { transform: translateY(24px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+@keyframes shake { 0%,100% { transform: translateX(0);} 25% { transform: translateX(-7px);} 75% { transform: translateX(7px);} }
+@keyframes bounce-soft { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-8px);} }
+@keyframes wiggle { 0%,100% { transform: rotate(-4deg);} 50% { transform: rotate(4deg);} }
+@keyframes confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: 0.9; }
+}
+@keyframes ring-glow { 0%,100% { box-shadow: 0 0 0 0 rgba(88,204,2,0.5);} 50% { box-shadow: 0 0 0 12px rgba(88,204,2,0);} }
+
+.animate-pop-in { animation: pop-in 0.2s ease-out; }
+.animate-slide-up { animation: slide-up 0.25s ease-out; }
+.animate-shake { animation: shake 0.4s ease-in-out; }
+.animate-bounce-soft { animation: bounce-soft 2.2s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 1.6s ease-in-out infinite; }
+.animate-ring-glow { animation: ring-glow 2s ease-out infinite; }
