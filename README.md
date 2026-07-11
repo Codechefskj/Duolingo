@@ -4,7 +4,7 @@
 ## 🌐 Live Demo
 | Service | URL |
 |---------|-----|
-| Frontend (Vercel) | https://duolingo-26bg-git-main-codechefskjs-projects.vercel.app/learn |
+| Frontend (Vercel) | https://duolingo-26bg.vercel.app/learn |
 | Backend API (Render) | https://duolingo-sreb.onrender.com |
 | API Documentation | https://duolingo-sreb.onrender.com/docs |
 ---
