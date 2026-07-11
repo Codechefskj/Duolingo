@@ -498,7 +498,7 @@ The backend automatically seeds the database during the first deployment if it i
 ## Frontend
 
 - **Platform:** Vercel
-- **URL:** https://duolingo-26bg-git-main-codechefskjs-projects.vercel.app/learn
+- **URL:** https://duolingo-26bg.vercel.app/learn
 
 ## Backend
 
