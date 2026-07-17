@@ -11,7 +11,7 @@
 
 ## Project Description
 
-Lingo is a Duolingo-style language learning web app I built as a full-stack assignment. The idea was to recreate the parts of Duolingo that actually make it feel like Duolingo — the skill tree that gates lessons behind progress, the lesson player with instant right/wrong feedback, the hearts you lose on wrong answers, the streak that ticks up each day, and the XP that pushes you toward a daily goal — inside a UI that looks and behaves like the real thing.
+Lingo is a Duolingo-style language learning web app I built as a full-stack Project. The idea was to recreate the parts of Duolingo that actually make it feel like Duolingo — the skill tree that gates lessons behind progress, the lesson player with instant right/wrong feedback, the hearts you lose on wrong answers, the streak that ticks up each day, and the XP that pushes you toward a daily goal — inside a UI that looks and behaves like the real thing.
 
 The lesson loop is the heart of the app. A learner picks a skill from the path, moves through a mix of multiple-choice, word-bank translate, match-pairs, fill-in-the-blank, and type-the-answer exercises, gets immediate feedback with a slide-up bar, loses a heart on a wrong answer, and finishes to a confetti-and-mascot completion modal that shows the XP earned. Everything they earned — XP, streak, hearts, skill crowns — persists in a real database, so their progress is still there when they come back.
 
@@ -570,8 +570,6 @@ Building this taught me a lot about how the pieces of a full-stack app fit toget
 | Field          | Details                                       |
 | -------------- | --------------------------------------------- |
 | Name           | sambhav jha                                   |
-| Role           | Full-stack / Backend Software Engineer        |
-| Assignment     | Duolingo Clone — SDE Fullstack Assignment     |
 | Stack          | Next.js 14 · TypeScript · FastAPI · SQLAlchemy · SQLite |
 | Handles        | sambhav.jha.ug23@nsut.ac.in                  |
 
